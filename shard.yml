@@ -1,0 +1,13 @@
+name: example_crystal_app
+version: 0.1.0
+
+authors:
+  - Jamie Gaskins <jgaskins@gmail.com>
+
+targets:
+  example_crystal_app:
+    main: src/example_crystal_app.cr
+
+crystal: 0.30.1
+
+license: MIT
