@@ -49,4 +49,4 @@ end
 
 port = (ENV["PORT"]? || 8080).to_i
 puts "Listening on #{port}"
-HTTP::Server.new([App.new]).listen port
+HTTP::Server.new([App.new]).listen "0.0.0.0", port
