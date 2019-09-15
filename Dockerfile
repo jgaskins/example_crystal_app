@@ -1,6 +1,8 @@
 FROM crystallang/crystal:0.30.1
 
-RUN /bin/bash -l -c "shards install"
-RUN /bin/bash -l -c "shards build --release"
+ADD . /src
+WORKDIR /src
+
+RUN shards build --production
 
 CMD ["bin/example_crystal_app"]
