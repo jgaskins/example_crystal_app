@@ -2,48 +2,26 @@ require "http"
 require "uuid"
 require "uuid/json"
 
+require "./queries"
+
 class App
   include HTTP::Handler
 
-  PRODUCTS = [
-    {
-      id: UUID.random,
-      name: "The First Product",
-      description: "This is the first product in the collection",
-      price_cents: 1000_00,
-    },
-    {
-      id: UUID.random,
-      name: "The Second Product",
-      description: "This is the second product in the collection",
-      price_cents: 1000_00,
-    },
-    {
-      id: UUID.random,
-      name: "The Third Product",
-      description: "This is the third product in the collection",
-      price_cents: 1000_00,
-    },
-  ]
-
-  PAYLOAD = {
-    customer: {
-      id: UUID.random,
-      name: "Jamie Gaskins",
-      email: "jamie@example.com",
-      created_at: Time.utc,
-      updated_at: Time.utc,
-    },
-    order: {
-      id: UUID.random,
-      product_ids: PRODUCTS.map{ |p| p[:id] },
-    },
-    products: PRODUCTS,
-  }
-
   def call(context)
-    Fiber.yield # Simulate getting data from the DB
-    PAYLOAD.to_json context.response
+    products = Queries::ListProducts.call
+
+    {
+      products: products.map { |product|
+        {
+          id: product.id,
+          name: product.name,
+          description: product.description,
+          price_cents: product.price_cents,
+          created_at: product.created_at,
+          updated_at: product.updated_at,
+        }
+      }
+    }.to_json context.response
   end
 end
 

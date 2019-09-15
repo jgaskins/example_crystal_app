@@ -1,0 +1,6 @@
+version: 1.0
+shards:
+  neo4j:
+    github: jgaskins/neo4j.cr
+    version: 0.5.5
+
