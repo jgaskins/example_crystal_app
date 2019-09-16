@@ -2,12 +2,15 @@ require "amqp-client"
 
 AMQP::Client.start ENV["AMQP_URL"] do |amqp|
   amqp.channel do |channel|
-    channel.exchange_declare "example-exchange", type: "fanout"
-    exchange = channel.fanout_exchange "example-exchange"
-    q = channel.queue "example-queue"
+    exchange_name = "example-exchange"
+    queue_name = "example-queue"
 
-    q.bind exchange.name, ""
-    q.subscribe do |message|
+    channel.exchange_declare exchange_name, type: "fanout"
+    exchange = channel.fanout_exchange(exchange_name)
+    q = channel.queue(queue_name)
+
+    q.bind exchange_name, ""
+    q.subscribe no_ack: false do |message|
       # Route message to handlers here
 
       channel.basic_ack message.delivery_tag
