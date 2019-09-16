@@ -1,5 +1,13 @@
 version: 1.0
 shards:
+  amq-protocol:
+    github: cloudamqp/amq-protocol.cr
+    version: 0.3.2
+
+  amqp-client:
+    github: cloudamqp/amqp-client.cr
+    version: 0.4.2
+
   neo4j:
     github: jgaskins/neo4j.cr
     version: 0.5.5

@@ -7,10 +7,14 @@ authors:
 targets:
   example_crystal_app:
     main: src/example_crystal_app.cr
+  message_processor:
+    main: src/message_processor.cr
 
 dependencies:
   neo4j:
     github: jgaskins/neo4j.cr
+  amqp-client:
+    github: cloudamqp/amqp-client.cr
 
 crystal: 0.30.1
 
