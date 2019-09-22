@@ -16,6 +16,11 @@ dependencies:
   amqp-client:
     github: jgaskins/amqp-client.cr
     branch: patch-1
+    # path: ../amqp-client.cr
+  statsd:
+    github: miketheman/statsd.cr
+    branch: master
+    # path: ../statsd.cr
 
 crystal: 0.30.1
 

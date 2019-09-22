@@ -12,3 +12,7 @@ shards:
     github: jgaskins/neo4j.cr
     version: 0.5.5
 
+  statsd:
+    github: miketheman/statsd.cr
+    commit: 7ad9e853a51bec051dadb99780a58f98d57bb3b9
+
