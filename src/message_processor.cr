@@ -7,13 +7,19 @@ AMQP::Client.start ENV["AMQP_URL"] do |amqp|
 
     channel.exchange_declare exchange_name, type: "fanout"
     exchange = channel.fanout_exchange(exchange_name)
+
     q = channel.queue(queue_name)
 
     q.bind exchange_name, ""
     q.subscribe no_ack: false do |message|
-      # Route message to handlers here
+      spawn do
+        # Route message to handlers here
+        message.body_io.gets_to_end
 
-      channel.basic_ack message.delivery_tag
+        channel.basic_ack message.delivery_tag
+      rescue
+        channel.basic_nack message.delivery_tag
+      end
     end
 
     sleep

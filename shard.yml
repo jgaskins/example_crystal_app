@@ -14,7 +14,8 @@ dependencies:
   neo4j:
     github: jgaskins/neo4j.cr
   amqp-client:
-    github: cloudamqp/amqp-client.cr
+    github: jgaskins/amqp-client.cr
+    branch: patch-1
 
 crystal: 0.30.1
 
