@@ -65,7 +65,7 @@ data = File.read(__FILE__)
 exchange_name = "example-exchange"
 queue_name = "example-queue"
 
-statsd = Statsd::Client.new
+statsd = Statsd::Client.new(ENV["DOGSTATSD_HOST_IP"]? || "127.0.0.1")
 
 if ENV["PRODUCER"]?
   spawn do
