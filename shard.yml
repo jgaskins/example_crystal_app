@@ -14,13 +14,10 @@ dependencies:
   neo4j:
     github: jgaskins/neo4j.cr
   amqp-client:
-    github: jgaskins/amqp-client.cr
-    branch: patch-1
-    # path: ../amqp-client.cr
+    github: cloudamqp/amqp-client.cr
   statsd:
     github: miketheman/statsd.cr
     branch: master
-    # path: ../statsd.cr
 
 crystal: 0.31.1
 

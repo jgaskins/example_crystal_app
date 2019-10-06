@@ -5,12 +5,12 @@ shards:
     version: 0.3.2
 
   amqp-client:
-    github: jgaskins/amqp-client.cr
-    commit: 42a1265f93289e0419a05d43b0ff0e6ca419eace
+    github: cloudamqp/amqp-client.cr
+    version: 0.4.4
 
   neo4j:
     github: jgaskins/neo4j.cr
-    version: 0.5.5
+    version: 0.5.6
 
   statsd:
     github: miketheman/statsd.cr
