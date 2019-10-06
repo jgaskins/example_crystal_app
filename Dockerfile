@@ -1,4 +1,4 @@
-FROM crystallang/crystal:0.30.1
+FROM crystallang/crystal:0.31.1
 
 ARG NEO4J_URL
 ARG NEO4J_USE_SSL

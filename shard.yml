@@ -22,6 +22,6 @@ dependencies:
     branch: master
     # path: ../statsd.cr
 
-crystal: 0.30.1
+crystal: 0.31.1
 
 license: MIT
